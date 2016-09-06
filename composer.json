@@ -12,13 +12,12 @@
   ],
   "require": {
     "php": ">=5.3.2",
-    "symfony/symfony": "2.0.10.*",
-    "symfony/event-dispatcher": "2.0.15 as 2.1",
+    "symfony/symfony": "<2.2",
     "symfony/http-kernel": "*",
     "symfony/config": "*",
     "symfony/dependency-injection": "*",
     "monolog/monolog": "1.*",
-    "guzzle/guzzle": "3.8.1 as 3.9.2",
+    "guzzle/guzzle": "<4.0",
     "commerceguys/guzzle-oauth2-plugin": "~1.0"
   },
   "require-dev": {
