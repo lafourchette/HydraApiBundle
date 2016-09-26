@@ -80,6 +80,14 @@ class ApiClientTest extends \PHPUnit_Framework_TestCase
             ->isPropagationStopped()
             ->shouldBeCalled();
 
+        $eventMock
+            ->setDispatcher($this->client->getEventDispatcher())
+            ->shouldBeCalled();
+
+        $eventMock
+            ->setName('client.create_request')
+            ->shouldBeCalled();
+
         $this->client->setAuthentication($this->authenticationMock->reveal());
         $this->client->getEventDispatcher()->dispatch('client.create_request', $eventMock->reveal());
     }
