@@ -201,6 +201,10 @@ class Oauth2PasswordAuthenticationTest extends \PHPUnit_Framework_TestCase
 
         /** @var EventDispatcherInterface $dispatcher */
         $dispatcher = $clientProperty->getValue($this->oauth2PasswordAuthentication)->getEventDispatcher();
+
+        $refreshTokenEventMock->setDispatcher($dispatcher)->shouldBeCalled();
+        $refreshTokenEventMock->setName(RefreshToken::GET_TOKEN_DATA_EVENT)->shouldBeCalled();
+
         $dispatcher->dispatch(RefreshToken::GET_TOKEN_DATA_EVENT, $refreshTokenEventMock->reveal());
     }
 
